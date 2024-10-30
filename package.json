@@ -25,6 +25,9 @@
     "lint:prettier:fix": "prettier packages --write",
     "lint:prettier:check": "prettier packages --check"
   },
+  "precommit": [
+    "build"
+  ],
   "devDependencies": {
     "@changesets/cli": "2.19.0-temp.0",
     "@effect-ts/tracing-plugin": "^0.20.0",
