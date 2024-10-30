@@ -191,9 +191,9 @@ const writeFilesForCache = ({
         T.succeedWith(() => process.versions.node.split('.').map((_) => parseInt(_, 10)) as [number, number, number]),
       )
 
-      // NOTE Type assert statements for `.json` files are neccessary from Node v16.14 onwards
+      // NOTE Type with statements for `.json` files are neccessary from Node v16.14 onwards
       const needsJsonAssertStatement = nodeVersionMajor > 16 || (nodeVersionMajor === 16 && nodeVersionMinor >= 14)
-      const assertStatement = needsJsonAssertStatement ? ` assert { type: 'json' }` : ''
+      const assertStatement = needsJsonAssertStatement ? ` with { type: 'json' }` : ''
 
       const typeNameField = generationOptions.options.fieldOptions.typeFieldName
       const dataBarrelFiles = documentDefs.map((docDef) => ({
